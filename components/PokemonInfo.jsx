@@ -1,76 +1,75 @@
-import React  from 'react';
-import { StyleSheet, Text, View, Image, Button, FlatList } from 'react-native';
-import colorType from '../helpers/colorType';
+import React from "react";
+import { StyleSheet, Text, View, Image, Button, FlatList } from "react-native";
+import colorType from "../helpers/colorType";
 
-const PokemonInfo = ( { types } ) => {
-
-    const typesPokemon = types.map((type) => {
-        return type.type
-    })
+const PokemonInfo = ({ data }) => {
+    const types = data.types.map((el) => {
+        return el.type;
+    });
 
     return (
-        <View style={ styles.container }>
-            <Text style={ styles.title }>
-                Pokemon Info
-            </Text>
-
-            <View>
-                <Text style={ styles.subTitle } >Types</Text>
-                <FlatList 
-                    data={ typesPokemon }
-                    renderItem={ (type) => {
-                        let bgColor = colorType(type.item.name);
-
-                        return(
-                            <View  style={{
-                                backgroundColor: bgColor, 
-                                width: 60,
-                                borderRadius: 6,
-                                margin: 2,
-                                paddingHorizontal: 3  }} > 
-                                <Text style={ styles.typeText } >
-                                {type.item.name}
-                                </Text>
-                            </View>
-
-                        )
-                    } }
-                    keyExtractor={item => item.name}
-                /> 
+        <View style={styles.container}>
+            <Text style={styles.title}>Pokemon Info</Text>
+            <View style={styles.childContainer}>
+                <View style={{ marginHorizontal: 20 }}>
+                    <Text style={styles.subTitle}>No. {data.id} </Text>
+                    <Text style={styles.subTitle}>Weight: {data.weight / 10} kg</Text>
+                    <Text style={styles.subTitle}>Height: {data.height / 10} mts</Text>
+                </View>
+                <View>
+                    <Text style={styles.subTitle}>Type</Text>
+                    <FlatList
+                        data={types}
+                        renderItem={(type) => {
+                            let bgColor = colorType(type.item.name);
+                            return (
+                                <View
+                                    style={{
+                                        backgroundColor: bgColor,
+                                        width: 60,
+                                        borderRadius: 6,
+                                        margin: 2,
+                                        paddingHorizontal: 3,
+                                    }}
+                                >
+                                    <Text style={styles.typeText}>{type.item.name}</Text>
+                                </View>
+                            );
+                        }}
+                        keyExtractor={(item) => item.name}
+                    />
+                </View>
             </View>
-
         </View>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
     title: {
         fontSize: 18,
-        textAlign: 'center',
-        color: '#fff'
-    }, 
+        textAlign: "center",
+        color: "#fff",
+    },
     subTitle: {
         fontSize: 16,
-        color: '#fff'
+        color: "#fff",
     },
     container: {
         width: 400,
         height: 150,
-        backgroundColor: "#5c6968", 
+        backgroundColor: "#5c6968",
         padding: 10,
-        marginBottom: 15
-    }, 
-    typeContainer: {
-        backgroundColor: 'red',
-        width: 60,
-        borderRadius: 6,
-        margin: 2,
-        paddingHorizontal: 3 
-    }, 
+        marginBottom: 15,
+        borderRadius: 12,
+    },
+    childContainer: {
+        flex: 1,
+        flexDirection: "row",
+    },
     typeText: {
-        color: '#fff',
-        textAlign: 'center'
-    }
-})
+        color: "#fff",
+        textAlign: "center",
+    },
+});
 
 export default PokemonInfo;
