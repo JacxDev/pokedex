@@ -10,7 +10,8 @@ import useFetch from "../hooks/useFetch";
 
 const Pokemon = ({ navigation }) => {
     const [pokemonId, setPokemonId] = useState(1);
-    const { data, loading } = useFetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
+    const apiUrl = 'https://pokeapi.co/api/v2/pokemon/'
+    const { data, loading } = useFetch(`${apiUrl}${pokemonId}`);
 
     const handlePressNext = () => {
         setPokemonId(pokemonId + 1);
@@ -34,7 +35,7 @@ const Pokemon = ({ navigation }) => {
             ) : (
                 <View>
                     <Text style={styles.name}> {data.name} </Text>
-                    <ImagePokemon uri={data.sprites.front_default} />
+                    <ImagePokemon width={ 250 } uri={`${apiUrl}${pokemonId}`} />
                     <PokemonInfo data={data} />
                 </View>
             )}
@@ -99,6 +100,11 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         marginVertical: 10,
     },
+    pokemonImg: {
+        width: 250,
+        height: 250,
+        alignItems: "center",
+    }
 });
 
 export default Pokemon;

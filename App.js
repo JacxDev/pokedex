@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Pokemon from './views/Pokemon';
-import AllPokemons from './views/AllPkemons';
+import AllPokemons from './views/AllPokemons';
 import SearchPokemon from './views/SearchPokemon';
 
 const Stack = createStackNavigator();

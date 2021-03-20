@@ -1,10 +1,19 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
+import useFetch from '../hooks/useFetch';
 
 const ImagePokemon = ({ uri }) => {
+
+    const { data, loading } = useFetch(uri);
+ 
     return (
         <View style={styles.imageContainer}>
-            <Image style={styles.img} source={{ uri: uri }} />
+            {
+                loading ? 
+                <Text> Cargando... </Text>
+                :
+                <Image style={styles.img} source={{ uri:  data.sprites.front_default }} />
+            }
         </View>
     );
 };
