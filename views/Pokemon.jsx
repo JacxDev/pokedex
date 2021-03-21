@@ -36,7 +36,7 @@ const Pokemon = ({ navigation }) => {
                 <View>
                     <Text style={styles.name}> {data.name} </Text>
                     <ImagePokemon width={ 250 } uri={`${apiUrl}${pokemonId}`} />
-                    <PokemonInfo data={data} />
+                    <PokemonInfo url={`${apiUrl}${pokemonId}`}/>
                 </View>
             )}
 
