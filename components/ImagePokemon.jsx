@@ -10,7 +10,7 @@ const ImagePokemon = ({ uri }) => {
         <View style={styles.imageContainer}>
             {
                 loading ? 
-                <Text> Cargando... </Text>
+                <Text>Cargando...</Text>
                 :
                 <Image style={styles.img} source={{ uri:  data.sprites.front_default }} />
             }
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         padding: 30,
+        marginTop: 15
     },
     img: {
         width: 250,

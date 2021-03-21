@@ -1,7 +1,7 @@
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 //Components
 import ImagePokemon from "../components/ImagePokemon";
 import PokemonInfo from "../components/PokemonInfo";
@@ -81,30 +81,14 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
         width: 140,
     },
-    imageContainer: {
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 30,
-    },
     name: {
         fontSize: 28,
         textAlign: "center",
-    },
-    img: {
-        width: 250,
-        height: 250,
-        alignItems: "center",
     },
     btnContainer: {
         flexDirection: "row",
         marginVertical: 10,
     },
-    pokemonImg: {
-        width: 250,
-        height: 250,
-        alignItems: "center",
-    }
 });
 
 export default Pokemon;

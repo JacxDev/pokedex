@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image, Button, FlatList } from "react-native";
+import React from "react";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import colorType from "../helpers/colorType";
 import useFetch from '../hooks/useFetch';
 
@@ -27,6 +27,7 @@ const PokemonInfo = ({ url }) => {
                 
                 <View style={styles.childContainer}>
                     <View style={{ marginHorizontal: 20 }}>
+                        <Text style={styles.subTitle}>Name: { data.name } </Text>
                         <Text style={styles.subTitle}>No. { data.id } </Text>
                         <Text style={styles.subTitle}>Weight: { data.weight / 10} kg</Text>
                         <Text style={styles.subTitle}>Height: { data.height / 10} mts</Text>

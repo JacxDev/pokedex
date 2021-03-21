@@ -19,7 +19,7 @@ const SearchPokemon = () => {
 
     return (
         <View >
-            <Text>Search Pokemons</Text>
+            <Text style={styles.title }>Search your pokemons</Text>
             <TextInput 
                 style={ styles.textInput }
                 value={ input }
@@ -39,6 +39,11 @@ const SearchPokemon = () => {
 };
 
 const styles = StyleSheet.create({ 
+    title: {
+        textAlign: 'center',
+        marginTop: 5,
+        fontSize: 19
+    },  
     textInput: {
         backgroundColor: "#fff",  
         height: 50,
