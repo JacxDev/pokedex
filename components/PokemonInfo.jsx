@@ -6,13 +6,20 @@ import useFetch from '../hooks/useFetch';
 const PokemonInfo = ({ url }) => {
 
     const { data, loading } = useFetch(url);
-    let types;
+    let types,
+        abilities;
 
     if(!loading){
         const dataTypes = data.types.map((el) => {
                 return el.type;
         });
-        types = dataTypes
+
+        const dataAbilities = data.abilities.map((el) => {
+            return el.ability
+        })
+       
+        abilities = dataAbilities;
+        types = dataTypes;
     }
     
     return (
@@ -55,6 +62,20 @@ const PokemonInfo = ({ url }) => {
                             keyExtractor={(item) => item.name}
                         />
                     </View>
+                    <View style={ styles.abilitiesContainer} >
+                        <Text style={styles.subTitle}>Abilities</Text>
+                        <FlatList
+                            data={abilities}
+                            renderItem={(abilitie) => {
+                                return (
+                                    <View>
+                                        <Text style={styles.typeText}>{abilitie.item.name}</Text>
+                                    </View>
+                                );
+                            }}
+                            keyExtractor={(item) => item.name}
+                        />
+                    </View>
                 </View>
 
             }
@@ -84,6 +105,9 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
     },
+    abilitiesContainer: {
+        paddingHorizontal: 20,
+    },  
     typeText: {
         color: "#fff",
         textAlign: "center",
