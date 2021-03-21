@@ -9,40 +9,46 @@ const colorType = (type) => {
             colorType = 'green'
             break;
         case "poison":
-            colorType = 'purple'
+            colorType = '#b97fc9'
             break;
         case "normal":
-            colorType = '#e6c0a8'
+            colorType = '#a8a692'
             break;
         case "water":
             colorType = 'blue'
             break;
         case "flying":
-            colorType = "#aaf2e7"
+            colorType = "#03b6fc"
             break;
         case "bug":
-            colorType = "#6ef587"
+            colorType = "#729f3f"
             break;
         case "electric":
-            colorType = "#e9f030"
+            colorType = "#eed535"
             break;
         case "ground":
-            colorType = "#9c6a3e"
+            colorType = "#ab9842"
             break;
         case "fairy":
-            colorType = "#bf88bf"
+            colorType = "#fdb9e9"
             break;
         case "fighting":
-            colorType = "#ba3d44"
+            colorType = "#d56723"
             break;
         case "psychic":
-            colorType = "#8e3dba"
+            colorType = "#f366b9"
             break;
         case "rock":
             colorType = "#5e402c"
             break;
         case "steel":
-            colorType = "#7a7a79"
+            colorType = "#9eb7b8"
+            break;
+        case "ice":
+            colorType = "#51c4e7"
+            break;
+        case "ghost":
+            colorType = "#7b62a3"
             break;
         default:
             colorType = 'black'

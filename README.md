@@ -11,5 +11,5 @@ cd pokedex
 
 npm install
 npm run start
-
+En metro bundler click Run on Android device/emulator || Run in web browser
 
